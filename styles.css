@@ -1,0 +1,88 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+h1, h4{
+    text-align: center;
+    padding: 1em;
+}
+
+.container{
+    margin-top: 3em;
+   
+}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+td, th {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 1em;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+button{
+    padding: 0.5em 1.5em;   
+    border-radius: 10px;
+    border: 0;
+    background: pink;
+}
+
+.free-room{font-weight: bold;}
+
+.reserve-modal{
+    display: none;
+    position: fixed;
+    z-index: 1; 
+    padding-top: 100px; 
+    background: rgba(0,0,0,0.3);;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+.reserve-box{
+    margin: auto;
+    width: 20%;
+    background: white;
+    padding-bottom: 0.5em;
+    overflow: auto;
+}
+span.close{
+    display: block;
+    color: red;
+    margin-top: 0;   
+    float: right;
+    font-size: 1.5em;
+    font-weight: bold;
+    padding: 0.2em; 
+       
+}
+span.close:hover,
+span.close:focus {
+    cursor: pointer;
+    background: red;
+    color: white;
+}
+.reserve-box h3{
+    text-align: center;    
+    padding-top: 1.5em;
+}
+.reserve-box form{
+    padding: 1em;    
+}
+.reserve-box form input{
+    padding: 0.5em;
+    width: 80%;
+}
+.reserve-box button{
+    display: block;
+    margin: 1em auto;
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Room Reservation</title>
+    <link rel="stylesheet" href="styles.css" type="text/css"/>
+</head>
+<body>
+    <h1>Room Reservation</h1>
+    <h4>Saturday 15.09.2018</h4>
+    <div class="container">
+        <table id="myTable">
+            <tr>
+                <th>Room</th>
+                <th>10:00</th>
+                <th>11:00</th>
+                <th>12:00</th>
+                <th>13:00</th>
+                <th>14:00</th>
+                <th></th>
+            </tr>
+            <tr class="free-room">
+                <td>Room 1</td>
+                <td>Vacant</td>
+                <td>Vacant</td>
+                <td>Vacant</td>
+                <td>Vacant</td>
+                <td>Vacant</td>                
+                <td><button>Edit</button></td>
+            </tr>
+            <tr class="free-room">
+                <td>Room 2</td>
+                <td>Vacant</td>
+                <td>Vacant</td>
+                <td>Vacant</td>
+                <td>Vacant</td>
+                <td>Vacant</td>            
+                <td><button>Edit</button></td>
+            </tr>
+            <tr class="free-room">
+                <td>Room 3</td>
+                <td>Vacant</td>
+                <td>Vacant</td>
+                <td>Vacant</td>
+                <td>Vacant</td>
+                <td>Vacant</td>                
+                <td><button>Edit</button></td>
+            </tr>
+        </table>
+        <div id="reserve" class="reserve-modal">
+            <div class="reserve-box">
+                <span class="close">&times;</span>
+                <h3 id="room-title"></h3>
+                <form>
+                    <label>Name:</label><br>
+                    <input type="text" placeholder="FName LName"/>
+                </form>
+                <button>Reserve</button>
+            </div>          
+        </div>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
