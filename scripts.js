@@ -6,7 +6,6 @@ addBtn.addEventListener("click", ()=>{
         addModal.style.display = "block"; 
         let inputRoom = document.getElementById("new-room");
         let saveRoom = document.getElementById("add-form");
-
         saveRoom.addEventListener("submit", (e)=>{
             e.preventDefault();
             let row = table.insertRow();
@@ -16,10 +15,10 @@ addBtn.addEventListener("click", ()=>{
             cell2.classList.add("edit-room");
             editBtnArr.push(cell2);               
             let cell3 = row.insertCell(2);
-            let number = 1;
             cell1.innerHTML = inputRoom.value;
             cell2.innerHTML = "<td class='edit-room' data-modal='edit-modal-1'><button>Edit</button></td>";
-            cell3.innerHTML = "<td class='remove-room'><button>Delete</button></td>";          
+            cell3.innerHTML = "<td class='remove-room'><button>Delete</button></td>"; 
+            addModal.style.display = "none";          
         });  
 });
 //close add new room modal
