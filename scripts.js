@@ -30,23 +30,29 @@ closeAdd.addEventListener("click", ()=>{
 //Reserve room
 let rooms = document.getElementsByClassName("free-room");
 const roomArr = Array.from(rooms);
+let resev = [];
+for(let t = 0; t<roomArr.length; t++){
+    resev[t] = false;
+}
+
+
 for(let i= 0; i<roomArr.length; i++){
     let thisRoom = roomArr[i];
     thisRoom.addEventListener("click", ()=>{
         let reserveModal = document.getElementById(thisRoom.dataset.book);     
         reserveModal.style.display = "block";
         let inputName = document.querySelector("input[data-person=" + thisRoom.dataset.book + "]");  
-        let savePerson = document.querySelector("form[data-bookSave=" + thisRoom.dataset.book + "]");
-        console.log(savePerson.lastElementChild);
+        let savePerson = document.querySelector("form[data-bookSave=" + thisRoom.dataset.book + "]");       
         savePerson.addEventListener("submit", (e)=>{
             e.preventDefault();
             let roomStatus = thisRoom.firstElementChild;
-            roomStatus.innerHTML =" -Reserved";
+            roomStatus.innerHTML =" -Reserved- " + inputName.value;
             thisRoom.style.color ="gray";
             thisRoom.style.fontWeight = "normal";
             thisRoom.style.fontStyle = "italic";
             reserveModal.style.display = "none"; 
-            savePerson.lastElementChild.value = "Unreserve";         
+            savePerson.lastElementChild.value = "Unreserve"; 
+            resev[i] = true;        
         });
     });
 }
@@ -66,6 +72,7 @@ for(let m=0; m<roomArr.length; m++){
                 thisRoom.style.color ="black";
                 thisRoom.style.fontWeight = "bold";
                 thisRoom.style.fontStyle = "normal";
+                resev[m] = false;
             });   
         }
     });    
@@ -116,10 +123,14 @@ const table = document.getElementById("myTable");
 let deleteBtns = document.getElementsByClassName("remove-room");
 for(let n=0; n<deleteBtns.length; n++){
     let delBtn = deleteBtns[n];
+    let checkReserve = delBtn.parentNode.firstElementChild.firstElementChild.innerHTML.includes("Reserved");
+    console.log(checkReserve);   
     delBtn.addEventListener("click", (e)=>{
         let rowIndex = e.target.parentNode.parentNode.rowIndex;              
-        table.deleteRow(rowIndex);
-    });    
+        if(resev[n] == false){
+            table.deleteRow(rowIndex);                
+        }            
+    });       
 }
 
 
