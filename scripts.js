@@ -37,18 +37,40 @@ for(let i= 0; i<roomArr.length; i++){
         reserveModal.style.display = "block";
         let inputName = document.querySelector("input[data-person=" + thisRoom.dataset.book + "]");  
         let savePerson = document.querySelector("form[data-bookSave=" + thisRoom.dataset.book + "]");
+        console.log(savePerson.lastElementChild);
         savePerson.addEventListener("submit", (e)=>{
             e.preventDefault();
-            let roomStatus = " Reserved";
-            let text = document.createTextNode(roomStatus);
-            thisRoom.appendChild(text);
+            let roomStatus = thisRoom.firstElementChild;
+            roomStatus.innerHTML =" -Reserved";
             thisRoom.style.color ="gray";
             thisRoom.style.fontWeight = "normal";
             thisRoom.style.fontStyle = "italic";
-            reserveModal.style.display = "none";          
+            reserveModal.style.display = "none"; 
+            savePerson.lastElementChild.value = "Unreserve";         
         });
     });
 }
+
+//Unreserve room
+for(let m=0; m<roomArr.length; m++){
+    let thisRoom = roomArr[m];
+    thisRoom.addEventListener("click", ()=>{
+        let roomStatus = thisRoom.firstElementChild.innerHTML;
+        if(roomStatus.includes("Reserved")){
+            let savePerson = document.querySelector("form[data-bookSave=" + thisRoom.dataset.book + "]");
+            savePerson.addEventListener("submit", (e)=>{
+                e.preventDefault();
+                savePerson.lastElementChild.value = "Reserve";
+                let roomStatus = thisRoom.firstElementChild;
+                roomStatus.innerHTML ="";
+                thisRoom.style.color ="black";
+                thisRoom.style.fontWeight = "bold";
+                thisRoom.style.fontStyle = "normal";
+            });   
+        }
+    });    
+}
+
 //close room-reserve modal
 let closeReserve = document.getElementsByClassName("close-reserve");
 
