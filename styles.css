@@ -17,16 +17,13 @@ table {
     width: 90%;
     margin-left: auto;
     margin-right: auto;
+    border-top: 1px solid black;
     
 }
 td, th {
     border: 1px solid #dddddd;
     text-align: center;
     padding: 1em;
-}
-
-tr:nth-child(even) {
-    background-color: #dddddd;
 }
 
 button{
@@ -36,10 +33,18 @@ button{
     background: pink;
 }
 
+#add-room{
+    display: block;
+    width: 20%;
+    margin: 2em auto;
+}
 .free-room{font-weight: bold;}
+.free-room:hover, .free-room:focus, .edit-room button:hover, .edit-room button:focus{
+    cursor: pointer;
+}
 
-.reserve-modal{
-    display: none;
+.reserve-modal, .edit-modal, .add-modal{
+    display: none;   
     position: fixed;
     z-index: 1; 
     padding-top: 100px; 
@@ -48,14 +53,14 @@ button{
     width: 100%;
     height: 100%;
 }
-.reserve-box{
+.reserve-box, .edit-box, .add-box{
     margin: auto;
     width: 20%;
     background: white;
     padding-bottom: 0.5em;
     overflow: auto;
 }
-span.close{
+span.close, #close-add, .close-reserve{
     display: block;
     color: red;
     margin-top: 0;   
@@ -66,23 +71,25 @@ span.close{
        
 }
 span.close:hover,
-span.close:focus {
+span.close:focus, #close-add:hover, #close-add:focus, .close-reserve:hover, .close-reserve:focus {
     cursor: pointer;
     background: red;
     color: white;
 }
-.reserve-box h3{
+.reserve-box h3, .edit-box h3, .add-box h3{
     text-align: center;    
     padding-top: 1.5em;
 }
-.reserve-box form{
+.reserve-box form, .edit-box form, .add-box form{
     padding: 1em;    
 }
-.reserve-box form input{
+.reserve-box input, .edit-box input, .add-box input{
     padding: 0.5em;
-    width: 80%;
+    width: 90%;
 }
-.reserve-box button{
+.submit-btn{
     display: block;
     margin: 1em auto;
+    width: 50%;
 }
+.submit-btn:hover, .submit-btn:focus{cursor: pointer;}

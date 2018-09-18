@@ -9,55 +9,106 @@
 </head>
 <body>
     <h1>Room Reservation</h1>
-    <h4>Saturday 15.09.2018</h4>
+    <h4>Tuesday 18.09.2018</h4>
     <div class="container">
         <table id="myTable">
             <tr>
-                <th>Room</th>
-                <th>10:00</th>
-                <th>11:00</th>
-                <th>12:00</th>
-                <th>13:00</th>
-                <th>14:00</th>
+                <th>Room</th>                
+                <th></th>
                 <th></th>
             </tr>
-            <tr class="free-room">
-                <td>Room 1</td>
-                <td>Vacant</td>
-                <td>Vacant</td>
-                <td>Vacant</td>
-                <td>Vacant</td>
-                <td>Vacant</td>                
-                <td><button>Edit</button></td>
+            <tr >
+                <td class="free-room" data-room="edit-modal-one" data-book="reserve-modal-one">Room 1</td>                            
+                <td class="edit-room" data-modal="edit-modal-one"><button>Edit</button></td>
+                <td class="remove-room"><button>Delete</button></td>
             </tr>
-            <tr class="free-room">
-                <td>Room 2</td>
-                <td>Vacant</td>
-                <td>Vacant</td>
-                <td>Vacant</td>
-                <td>Vacant</td>
-                <td>Vacant</td>            
-                <td><button>Edit</button></td>
+            <tr >
+                <td class="free-room" data-room="edit-modal-two" data-book="reserve-modal-one">Room 2</td>                          
+                <td class="edit-room" data-modal="edit-modal-two"><button>Edit</button></td>
+                <td class="remove-room"><button>Delete</button></td>
             </tr>
-            <tr class="free-room">
-                <td>Room 3</td>
-                <td>Vacant</td>
-                <td>Vacant</td>
-                <td>Vacant</td>
-                <td>Vacant</td>
-                <td>Vacant</td>                
-                <td><button>Edit</button></td>
+            <tr >
+                <td class="free-room" data-room="edit-modal-three" data-book="reserve-modal-one">Room 3</td>                              
+                <td class="edit-room" data-modal="edit-modal-three"><button>Edit</button></td>
+                <td class="remove-room"><button>Delete</button></td>
             </tr>
         </table>
-        <div id="reserve" class="reserve-modal">
+        <button id="add-room">Add New Room</button>
+        <div id="add" class="add-modal">
+            <div class="add-box">
+                <span id="close-add">&times;</span>
+                <h3>Add new room</h3>
+                <form id="add-form">
+                    <label>Room Name:</label><br>
+                    <input id="new-room" type="text" placeholder="new room name" value="" required/>
+                    <input class="submit-btn" type="submit" value="Add"/>
+                </form>  
+            </div>
+        </div>
+        <div class="reserve-modal" id="reserve-modal-one">
             <div class="reserve-box">
-                <span class="close">&times;</span>
+                <span class="close-reserve" data-book="reserve-modal-one">&times;</span>
                 <h3 id="room-title"></h3>
-                <form>
+                <form data-bookSave="reserve-modal-one">
                     <label>Name:</label><br>
-                    <input type="text" placeholder="FName LName"/>
-                </form>
-                <button>Reserve</button>
+                    <input id="name" type="text" placeholder="FName LName" value="" data-person="reserve-modal-one" required/>
+                    <input class="submit-btn" type="submit" value="Reserve"/>
+                </form>                              
+            </div>          
+        </div>
+        <div class="reserve-modal" id="reserve-modal-two">
+            <div class="reserve-box">
+                <span class="close-reserve" data-book="reserve-modal-two">&times;</span>
+                <h3 id="room-title"></h3>
+                <form data-bookSave="reserve-modal-two">
+                    <label>Name:</label><br>
+                    <input id="name" type="text" placeholder="FName LName" value="" data-person="reserve-modal-two" required/>
+                    <input class="submit-btn" type="submit" value="Reserve"/>
+                </form>                              
+            </div>          
+        </div>
+        <div class="reserve-modal" id="reserve-modal-three">
+            <div class="reserve-box">
+                <span class="close-reserve" data-book="reserve-modal-three">&times;</span>
+                <h3 id="room-title"></h3>
+                <form data-bookSave="reserve-modal-three">
+                    <label>Name:</label><br>
+                    <input id="name" type="text" placeholder="FName LName" value="" data-person="reserve-modal-three" required/>
+                    <input class="submit-btn" type="submit" value="Reserve"/>
+                </form>                              
+            </div>          
+        </div>
+        <div id="edit-modal-one" class="edit-modal">
+            <div class="edit-box">
+                <span class="close" data-modal="edit-modal-one">&times;</span>
+                <h3 id="edit-title">Edit Room</h3>
+                <form data-save="edit-modal-one">
+                    <label>New Room Name: </label><br>
+                    <input id="room-one" type="text" placeholder="Room name" value="" data-id = "edit-modal-one" required/>
+                    <input class="submit-btn" type="submit" value="Save"/>
+                </form>                              
+            </div>          
+        </div>
+        <div id="edit-modal-two" class="edit-modal">
+            <div class="edit-box">
+                <span class="close" data-modal="edit-modal-two">&times;</span>
+                <h3 id="edit-title">Edit Room</h3>
+                <form data-save="edit-modal-two">
+                    <label>New Room Name: </label><br>
+                    <input id="room-two" type="text" placeholder="Room name" value=""  data-id = "edit-modal-two" required/>
+                    <input class="submit-btn" type="submit" value="Save"/>
+                </form>                              
+            </div>          
+        </div>
+        <div id="edit-modal-three" class="edit-modal">
+            <div class="edit-box">
+                <span class="close" data-modal="edit-modal-three">&times;</span>
+                <h3 id="edit-title">Edit Room</h3>
+                <form data-save="edit-modal-three">
+                    <label>New Room Name: </label><br>
+                    <input id="room-three" type="text" placeholder="Room name" value="" data-id = "edit-modal-three" required/>
+                    <input class="submit-btn" type="submit" value="Save"/>
+                </form>                              
             </div>          
         </div>
     </div>
