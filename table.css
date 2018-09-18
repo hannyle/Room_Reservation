@@ -1,0 +1,18 @@
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    border-top: 1px solid black;
+    
+}
+td, th {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 1em;
+}
+.free-room{font-weight: bold;}
+.free-room:hover, .free-room:focus, .edit-room button:hover, .edit-room button:focus{
+    cursor: pointer;
+}

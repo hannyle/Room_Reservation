@@ -1,36 +1,3 @@
-//Edit buttons to edit modals
-let editBtns = document.getElementsByClassName("edit-room");
-const editBtnArr = Array.from(editBtns);
-//const editFunc;
-for(let i= 0; i<editBtnArr.length; i++){
-    let thisBtn = editBtnArr[i];
-    thisBtn.addEventListener("click", ()=>{
-        let editModal = document.getElementById(thisBtn.dataset.modal);  
-        //console.log(editModal);     
-        editModal.style.display = "block";
-        let input = document.querySelector("input[data-id=" + thisBtn.dataset.modal + "]"); 
-        let room = document.querySelector("td[data-room=" + thisBtn.dataset.modal + "]");     
-        let saveEdit = document.querySelector("form[data-save=" + thisBtn.dataset.modal + "]");
-        saveEdit.addEventListener("submit", (e)=>{
-            e.preventDefault();
-            room.innerHTML = input.value; 
-            editModal.style.display = "none";          
-        });
-    });
-    }
-
-//editFunc();
-const table = document.getElementById("myTable");
-//Delete room
-let deleteBtns = document.getElementsByClassName("remove-room");
-for(let n=0; n<deleteBtns.length; n++){
-    let delBtn = deleteBtns[n];
-    delBtn.addEventListener("click", (e)=>{
-        let rowIndex = e.target.parentNode.parentNode.rowIndex;              
-        table.deleteRow(rowIndex);
-    });    
-}
-
 //Add new room
 const addBtn = document.getElementById("add-room");
 const addModal = document.getElementById("add");
@@ -47,56 +14,23 @@ addBtn.addEventListener("click", ()=>{
             cell1.classList.add("free-room");
             let cell2 = row.insertCell(1);
             cell2.classList.add("edit-room");
-            editBtnArr.push(cell2);  
-            //console.log(editBtnArr);      
+            editBtnArr.push(cell2);               
             let cell3 = row.insertCell(2);
             let number = 1;
-            cell1.innerHTML = "<td class='free-room' data-room='edit-modal- 1" + number + "'>" + inputRoom.value + "</td>";
+            cell1.innerHTML = inputRoom.value;
             cell2.innerHTML = "<td class='edit-room' data-modal='edit-modal-1'><button>Edit</button></td>";
-            cell3.innerHTML = "<td class='remove-room'><button>Delete</button></td>";
-
-           /* let addModalDiv = document.createElement("div");
-            addModalDiv.classList.add("edit-modal");
-            addModalDiv.setAttribute("id", "edit-modal-1");
-            addModalDiv.innerHTML = 
-                
-                    "<div class='edit-box'>"
-                        "<span class='close' data-modal='edit-modal-" + number +"'>&times;</span>"
-                        "<h3 id='edit-title'>Edit Room</h3>"
-                        "<form id='edit-form' data-save='edit-modal-" + number + "'>"
-                            "<label>New Room Name: </label><br>"
-                            "<input id='room-two' type='text' placeholder='Room name' value=''  data-id = 'edit-modal-" + number + "' required/>"
-                            "<input class='submit-btn' type='submit' value='Save'/>"
-                        "</form></div>";
-
-            addModal.style.display = "none";
-            editFunc();*/
-    });
-    
-   
+            cell3.innerHTML = "<td class='remove-room'><button>Delete</button></td>";          
+        });  
 });
-
 //close add new room modal
 const closeAdd = document.getElementById("close-add");
 closeAdd.addEventListener("click", ()=>{
     addModal.style.display = "none";
 });
 
-//close edit modals
-let closeSign = document.getElementsByClassName("close");
-
-for(let j=0; j<closeSign.length; j++){
-    let thisClose = closeSign[j];
-    thisClose.addEventListener("click", ()=>{
-        let editModal = document.getElementById(thisClose.dataset.modal);        
-        editModal.style.display = "none";
-    });
-}
-
 //Reserve room
 let rooms = document.getElementsByClassName("free-room");
 const roomArr = Array.from(rooms);
-//const editFunc;
 for(let i= 0; i<roomArr.length; i++){
     let thisRoom = roomArr[i];
     thisRoom.addEventListener("click", ()=>{
@@ -116,7 +50,6 @@ for(let i= 0; i<roomArr.length; i++){
         });
     });
 }
-
 //close room-reserve modal
 let closeReserve = document.getElementsByClassName("close-reserve");
 
@@ -127,5 +60,46 @@ for(let r=0; r<closeReserve.length; r++){
         reserveModal.style.display = "none";
     });
 }
+
+//Edit rooms
+let editBtns = document.getElementsByClassName("edit-room");
+const editBtnArr = Array.from(editBtns);
+for(let i= 0; i<editBtnArr.length; i++){
+    let thisBtn = editBtnArr[i];
+    thisBtn.addEventListener("click", ()=>{
+        let editModal = document.getElementById(thisBtn.dataset.modal);  
+        //console.log(editModal);     
+        editModal.style.display = "block";
+        let input = document.querySelector("input[data-id=" + thisBtn.dataset.modal + "]"); 
+        let room = document.querySelector("td[data-room=" + thisBtn.dataset.modal + "]");     
+        let saveEdit = document.querySelector("form[data-save=" + thisBtn.dataset.modal + "]");
+        saveEdit.addEventListener("submit", (e)=>{
+            e.preventDefault();
+            room.innerHTML = input.value; 
+            editModal.style.display = "none";          
+        });
+    });
+}
+//close edit modals
+let closeSign = document.getElementsByClassName("close");
+for(let j=0; j<closeSign.length; j++){
+    let thisClose = closeSign[j];
+    thisClose.addEventListener("click", ()=>{
+        let editModal = document.getElementById(thisClose.dataset.modal);        
+        editModal.style.display = "none";
+    });
+}
+
+//Delete room
+const table = document.getElementById("myTable");
+let deleteBtns = document.getElementsByClassName("remove-room");
+for(let n=0; n<deleteBtns.length; n++){
+    let delBtn = deleteBtns[n];
+    delBtn.addEventListener("click", (e)=>{
+        let rowIndex = e.target.parentNode.parentNode.rowIndex;              
+        table.deleteRow(rowIndex);
+    });    
+}
+
 
 

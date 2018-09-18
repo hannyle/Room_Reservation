@@ -1,0 +1,28 @@
+.reserve-modal, .edit-modal, .add-modal{
+    display: none;   
+    position: fixed;
+    z-index: 1; 
+    padding-top: 100px; 
+    background: rgba(0,0,0,0.3);;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+.reserve-box, .edit-box, .add-box{
+    margin: auto;
+    width: 20%;
+    background: white;
+    padding-bottom: 0.5em;
+    overflow: auto;
+}
+.reserve-box h3, .edit-box h3, .add-box h3{
+    text-align: center;    
+    padding-top: 1.5em;
+}
+.reserve-box form, .edit-box form, .add-box form{
+    padding: 1em;    
+}
+.reserve-box input, .edit-box input, .add-box input{
+    padding: 0.5em;
+    width: 90%;
+}
